@@ -1,2 +1,2 @@
 # NewMVCDemo
-联系关于.netMVC项目
+练习关于.netMVC项目
