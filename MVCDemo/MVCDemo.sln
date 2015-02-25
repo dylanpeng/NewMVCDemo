@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dylan.Demo.MVC.Common", "Dy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dylan.Demo.MVC.Model", "Dylan.Demo.MVC.Model\Dylan.Demo.MVC.Model.csproj", "{8F48B511-8A21-44D5-B766-AFAFFC3C6506}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyUnitTest", "MyUnitTest\MyUnitTest.csproj", "{2B328749-E432-4A3D-9ED7-0954D4DBC74A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8F48B511-8A21-44D5-B766-AFAFFC3C6506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F48B511-8A21-44D5-B766-AFAFFC3C6506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F48B511-8A21-44D5-B766-AFAFFC3C6506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B328749-E432-4A3D-9ED7-0954D4DBC74A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B328749-E432-4A3D-9ED7-0954D4DBC74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B328749-E432-4A3D-9ED7-0954D4DBC74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B328749-E432-4A3D-9ED7-0954D4DBC74A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

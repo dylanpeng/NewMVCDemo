@@ -225,6 +225,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dylan.Demo.MVC.BLL\Dylan.Demo.MVC.BLL.csproj">
+      <Project>{4f340484-2e49-4a0f-9316-d03cb281679c}</Project>
+      <Name>Dylan.Demo.MVC.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dylan.Demo.MVC.Model\Dylan.Demo.MVC.Model.csproj">
+      <Project>{8f48b511-8a21-44d5-b766-afaffc3c6506}</Project>
+      <Name>Dylan.Demo.MVC.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

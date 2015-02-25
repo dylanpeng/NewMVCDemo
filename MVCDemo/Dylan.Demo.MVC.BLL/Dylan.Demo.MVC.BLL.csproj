@@ -39,8 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AdminBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dylan.Demo.MVC.DAL\Dylan.Demo.MVC.DAL.csproj">
+      <Project>{38b72642-eac9-4069-80ef-cf4ffe4ef21b}</Project>
+      <Name>Dylan.Demo.MVC.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dylan.Demo.MVC.Model\Dylan.Demo.MVC.Model.csproj">
+      <Project>{8f48b511-8a21-44d5-b766-afaffc3c6506}</Project>
+      <Name>Dylan.Demo.MVC.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

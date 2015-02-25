@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Dylan.Demo.MVC.Models;
+using Dylan.Demo.MVC.BLL;
+using Dylan.Demo.MVC.Model;
+
 
 namespace Dylan.Demo.MVC.Controllers
 {
@@ -32,6 +35,10 @@ namespace Dylan.Demo.MVC.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            AdminVM adminVM = new AdminVM();
+            adminVM.name = "admin";
+            adminVM.password = "123456";
+            AdminBLL.AddAdmin(adminVM);
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
