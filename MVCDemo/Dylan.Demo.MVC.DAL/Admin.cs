@@ -15,8 +15,16 @@ namespace Dylan.Demo.MVC.DAL
     public partial class Admin
     {
         public int ID { get; set; }
-        public string name { get; set; }
-        public string password { get; set; }
-        public string remark { get; set; }
+        public string Account { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Remark { get; set; }
+        public Nullable<short> Gender { get; set; }
+        public string Hobby { get; set; }
+        public Nullable<System.DateTime> CreatedTime { get; set; }
+        public Nullable<System.DateTime> UpdatedTime { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

@@ -26,8 +26,10 @@
             <a class="menu-toggler" id="menu-toggler" href="#">
                 <span class="menu-text"></span>
             </a>
-            @Html.Partial("_Sidebar")<!-- 右边选型栏 -->
-            @RenderBody()<!-- 主体-->
+            @Html.Partial("_Sidebar")<!-- 左边选项栏 -->
+            <div class="main-content">
+                @RenderBody()<!-- 主体-->
+            </div>
             @Html.Partial("_Settingbar")<!-- 设置浮动窗-->
         </div><!-- /.main-container-inner -->
 

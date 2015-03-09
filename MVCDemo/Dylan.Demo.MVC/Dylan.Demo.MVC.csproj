@@ -327,6 +327,8 @@
     <Content Include="Views\Shared\_Userbar.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_Settingbar.cshtml" />
+    <Content Include="Views\Manage\Create.cshtml" />
+    <Content Include="Views\Manage\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
