@@ -50,7 +50,7 @@ namespace Dylan.Demo.MVC.Controllers
         /// 修改账户
         /// </summary>
         /// <returns></returns>
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
             return View();
         }

@@ -57,7 +57,8 @@
     <Compile Include="Admin.cs">
       <DependentUpon>DemoMVCDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdminDAL.cs" />
+    <Compile Include="DAL\AdminDAL.cs" />
+    <Compile Include="DAL\DictionaryDAL.cs" />
     <Compile Include="DemoMVCDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +73,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DemoMVCDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary.cs">
+      <DependentUpon>DemoMVCDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

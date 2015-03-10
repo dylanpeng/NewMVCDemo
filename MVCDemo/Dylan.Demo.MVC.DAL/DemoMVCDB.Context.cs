@@ -26,5 +26,6 @@ namespace Dylan.Demo.MVC.DAL
         }
     
         public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Dictionary> Dictionary { get; set; }
     }
 }
