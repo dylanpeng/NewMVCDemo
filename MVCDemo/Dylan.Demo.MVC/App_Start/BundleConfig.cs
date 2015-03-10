@@ -38,7 +38,8 @@ namespace Dylan.Demo.MVC
                     "~/Scripts/assets/css/colorpicker.css" ,
                     "~/Scripts/assets/css/ace.min.css" ,
                     "~/Scripts/assets/css/ace-rtl.min.css" ,
-                    "~/Scripts/assets/css/ace-skins.min.css"
+                    "~/Scripts/assets/css/ace-skins.min.css",
+                    "~/Content/site.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/ace/js").Include(
@@ -54,7 +55,9 @@ namespace Dylan.Demo.MVC
                 "~/Scripts/assets/js/flot/jquery.flot.pie.min.js",
                 "~/Scripts/assets/js/flot/jquery.flot.resize.min.js",
                 "~/Scripts/assets/js/ace-elements.min.js",
-                "~/Scripts/assets/js/ace.min.js"
+                "~/Scripts/assets/js/ace.min.js",
+                "~/Scripts/jquery.validate*",
+                "~/Scripts/respond.js"
             ));
         }
     }

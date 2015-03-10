@@ -7,13 +7,12 @@
 
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    @*<meta name="viewport" content="width=device-width" />*@
     <title>_main</title>
     @Styles.Render("~/bundles/ace/css")
-
-    @*<script src="~/Scripts/assets/js/ace-extra.min.js"></script>*@
+    @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body style="padding:0">
     
     @Html.Partial("_Userbar")<!-- 登陆人头部信息 -->
     
@@ -55,7 +54,7 @@
     </script>
     @Scripts.Render("~/bundles/ace/js")
 
-    <script src="~/Scripts/ViewsJS/Main/MainACEJS.js"></script>
+    <script src="~/Scripts/ViewJS/Main/MainACEJS.js"></script>
     <div style="display:none">
     <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
