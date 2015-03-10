@@ -1,8 +1,146 @@
-﻿
+﻿@model Dylan.Demo.MVC.Model.AdminVM
+@using Dylan.Demo.MVC.HtmlHelper
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_main.cshtml";
 }
 
-<h2>Edit</h2>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="#">主页</a>
+        </li>
+
+        <li>
+            <a href="#">帐号管理</a>
+        </li>
+        <li class="active">新增账号</li>
+    </ul><!-- .breadcrumb -->
+
+    <div class="nav-search" id="nav-search">
+        <form class="form-search">
+            <span class="input-icon">
+                <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                <i class="icon-search nav-search-icon"></i>
+            </span>
+        </form>
+    </div><!-- #nav-search -->
+</div>
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            账号信息
+            <small>
+                <i class="icon-double-angle-right"></i>
+                请输入相关信息
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            @using (Html.BeginForm("Edit", "Manage", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(m => m.ID)
+                @Html.HiddenFor(m => m.Account)
+                @Html.HiddenFor(m => m.IsDeleted)
+                @Html.HiddenFor(m => m.CreatedTime)
+                @Html.HiddenFor(m => m.UpdatedTime)
+                @Html.HiddenFor(m => m.Password)
+                <div class="form-group">
+                    @*<label class="col-sm-3 control-label no-padding-right" for="form-field-1">账号：</label>*@
+                    @Html.LabelFor(m => m.Account, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(m => m.Account, new { @placeholder = "账号", @class = "col-xs-10 col-sm-5" })
+                        @Html.ValidationMessageFor(m => m.Account)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Name, new { @placeholder = "姓名", @class = "col-xs-10 col-sm-5" })
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Gender, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        <label style="width:50px">
+                            @Html.RadioButtonFor(m => m.Gender, "1", new { @class = "ace" })
+                            <span class="lbl"> 男</span>
+                        </label>
+                        <label style="width:50px">
+                            @Html.RadioButtonFor(m => m.Gender, "0", new { @class = "ace" })
+                            <span class="lbl"> 女</span>
+                        </label>
+                        @Html.ValidationMessageFor(m => m.Gender)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Phone, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Phone, new { @placeholder = "电话", @class = "col-xs-10 col-sm-5" })
+                        @Html.ValidationMessageFor(m => m.Phone)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @class = "col-xs-10 col-sm-5" })
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Hobbys, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.CheckBoxListFor(m => m.Hobbys, "Hobbys")
+                        @Html.ValidationMessageFor(m => m.Hobbys)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Remark, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.Remark, new { @placeholder = "备注", @class = "col-xs-10 col-sm-5" })
+                        @Html.ValidationMessageFor(m => m.Remark)
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="submit">
+                            <i class="icon-ok bigger-110"></i>
+                            提交
+                        </button>
+
+                        &nbsp; &nbsp; &nbsp;
+                        <button class="btn" type="reset">
+                            <i class="icon-undo bigger-110"></i>
+                            取消
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 

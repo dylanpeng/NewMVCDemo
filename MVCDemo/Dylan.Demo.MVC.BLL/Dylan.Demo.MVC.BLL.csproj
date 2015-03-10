@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminBLL.cs" />
-    <Compile Include="DictionaryBLL.cs" />
+    <Compile Include="ManageBLL\AdminBLL.cs" />
+    <Compile Include="ManageBLL\DictionaryBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

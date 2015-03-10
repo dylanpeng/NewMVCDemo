@@ -18,11 +18,11 @@ namespace Dylan.Demo.MVC.DAL
         public string Account { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
+        public Nullable<short> Gender { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string Remark { get; set; }
-        public Nullable<short> Gender { get; set; }
         public string Hobby { get; set; }
+        public string Remark { get; set; }
         public Nullable<System.DateTime> CreatedTime { get; set; }
         public Nullable<System.DateTime> UpdatedTime { get; set; }
         public Nullable<bool> IsDeleted { get; set; }

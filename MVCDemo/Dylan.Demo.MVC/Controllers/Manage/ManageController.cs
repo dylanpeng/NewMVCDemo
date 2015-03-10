@@ -47,12 +47,31 @@ namespace Dylan.Demo.MVC.Controllers
         }
 
         /// <summary>
-        /// 修改账户
+        /// 编辑账户
         /// </summary>
         /// <returns></returns>
         public ActionResult Edit(int id)
         {
-            return View();
+            AdminVM adminVM = AdminBLL.GetAdminByID(id);
+            if (adminVM == null)
+            {
+                return Content("参数错误！");
+            }
+            return View(adminVM);
+        }
+
+        /// <summary>
+        /// 编辑账户
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Edit(AdminVM admin)
+        {
+            if (ModelState.IsValid)
+            {
+                AdminBLL.EditAdmin(admin);
+            }
+            return View(admin);
         }
 
         /// <summary>
@@ -64,4 +83,4 @@ namespace Dylan.Demo.MVC.Controllers
             return View();
         }
 	}
-}
+}   

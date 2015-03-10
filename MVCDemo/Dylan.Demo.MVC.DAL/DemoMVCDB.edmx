@@ -16,7 +16,7 @@
           <Property Name="Gender" Type="smallint" />
           <Property Name="Phone" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="200" />
-          <Property Name="Hobby" Type="nchar" MaxLength="10" />
+          <Property Name="Hobby" Type="varchar" MaxLength="50" />
           <Property Name="Remark" Type="varchar" MaxLength="200" />
           <Property Name="CreatedTime" Type="datetime" />
           <Property Name="UpdatedTime" Type="datetime" />
@@ -42,26 +42,9 @@
     <edmx:ConceptualModels>
       <Schema Namespace="MVCDemoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="MVCDemoDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admin" EntityType="MVCDemoDBModel.Admin" />
           <EntitySet Name="Dictionary" EntityType="MVCDemoDBModel.Dictionary" />
+          <EntitySet Name="Admin" EntityType="MVCDemoDBModel.Admin" />
         </EntityContainer>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Gender" Type="Int16" />
-          <Property Name="Hobby" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
-          <Property Name="IsDeleted" Type="Boolean" />
-        </EntityType>
         <EntityType Name="Dictionary">
           <Key>
             <PropertyRef Name="ID" />
@@ -73,30 +56,29 @@
           <Property Name="CreatedTime" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="Int16" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Hobby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MVCDemoDBModelStoreContainer" CdmEntityContainer="MVCDemoDBEntities">
-          <EntitySetMapping Name="Admin">
-            <EntityTypeMapping TypeName="MVCDemoDBModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
-                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
-                <ScalarProperty Name="Hobby" ColumnName="Hobby" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Account" ColumnName="Account" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Dictionary">
             <EntityTypeMapping TypeName="MVCDemoDBModel.Dictionary">
               <MappingFragment StoreEntitySet="Dictionary">
@@ -105,6 +87,24 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="MVCDemoDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Hobby" ColumnName="Hobby" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

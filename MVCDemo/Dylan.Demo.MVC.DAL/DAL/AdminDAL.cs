@@ -9,6 +9,16 @@ namespace Dylan.Demo.MVC.DAL
 {
     public class AdminDAL
     {
+        public static Admin GetAdminByID(int id)
+        {
+            Admin admin;
+            using (MVCDemoDBEntities db = new MVCDemoDBEntities())
+            {
+                admin = db.Admin.Find(id);
+            }
+            return admin;
+        }
+
         public static void AddAdmin(Admin admin)
         {
             using(MVCDemoDBEntities db = new MVCDemoDBEntities())
