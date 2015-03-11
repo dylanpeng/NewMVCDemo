@@ -12,13 +12,13 @@
         <ul class="breadcrumb">
             <li>
                 <i class="icon-home home-icon"></i>
-                <a href="#">Home</a>
+                <a href="#">主页</a>
             </li>
 
             <li>
-                <a href="#">Tables</a>
+                <a href="#">账号管理</a>
             </li>
-            <li class="active">jqGrid plugin</li>
+            <li class="active">账号列表</li>
         </ul><!-- .breadcrumb -->
 
         <div class="nav-search" id="nav-search">
@@ -34,31 +34,18 @@
     <div class="page-content">
         <div class="page-header">
             <h1>
-                jqGrid
+                账号列表
                 <small>
                     <i class="icon-double-angle-right"></i>
-                    Dynamic tables and grids using jqGrid plugin
+                    查询详情
                 </small>
             </h1>
         </div><!-- /.page-header -->
 
         <div class="row">
             <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
-
-                <div class="alert alert-info">
-                    <i class="icon-hand-right"></i>
-
-                    Please note that demo server is not configured to save the changes, therefore you may get an error message.
-                    <button class="close" data-dismiss="alert">
-                        <i class="icon-remove"></i>
-                    </button>
-                </div>
-
                 <table id="grid-table"></table>
-
                 <div id="grid-pager"></div>
-
                 <script type="text/javascript">
                     var $path_base = "/";//this will be used in gritter alerts containing images
                 </script>
@@ -96,66 +83,47 @@
         <script src="~/Scripts/assets//js/date-time/bootstrap-datepicker.min.js"></script>
         <script src="~/Scripts/assets//js/jqGrid/jquery.jqGrid.min.js"></script>
         <script src="~/Scripts/assets//js/jqGrid/i18n/grid.locale-en.js"></script>
+        <script src="~/Scripts/ViewJS/Manage/AdminTableAjax.js"></script>
 
 
         <!-- inline scripts related to this page -->
 
         <script type="text/javascript">
-            var grid_data =
-            [
-                { id: "1", name: "Desktop Computer", note: "note", stock: "Yes", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "2", name: "Laptop", note: "Long text ", stock: "Yes", ship: "InTime", sdate: "2007-12-03" },
-                { id: "3", name: "LCD Monitor", note: "note3", stock: "Yes", ship: "TNT", sdate: "2007-12-03" },
-                { id: "4", name: "Speakers", note: "note", stock: "No", ship: "ARAMEX", sdate: "2007-12-03" },
-                { id: "5", name: "Laser Printer", note: "note2", stock: "Yes", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "6", name: "Play Station", note: "note3", stock: "No", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "7", name: "Mobile Telephone", note: "note", stock: "Yes", ship: "ARAMEX", sdate: "2007-12-03" },
-                { id: "8", name: "Server", note: "note2", stock: "Yes", ship: "TNT", sdate: "2007-12-03" },
-                { id: "9", name: "Matrix Printer", note: "note3", stock: "No", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "10", name: "Desktop Computer", note: "note", stock: "Yes", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "11", name: "Laptop", note: "Long text ", stock: "Yes", ship: "InTime", sdate: "2007-12-03" },
-                { id: "12", name: "LCD Monitor", note: "note3", stock: "Yes", ship: "TNT", sdate: "2007-12-03" },
-                { id: "13", name: "Speakers", note: "note", stock: "No", ship: "ARAMEX", sdate: "2007-12-03" },
-                { id: "14", name: "Laser Printer", note: "note2", stock: "Yes", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "15", name: "Play Station", note: "note3", stock: "No", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "16", name: "Mobile Telephone", note: "note", stock: "Yes", ship: "ARAMEX", sdate: "2007-12-03" },
-                { id: "17", name: "Server", note: "note2", stock: "Yes", ship: "TNT", sdate: "2007-12-03" },
-                { id: "18", name: "Matrix Printer", note: "note3", stock: "No", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "19", name: "Matrix Printer", note: "note3", stock: "No", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "20", name: "Desktop Computer", note: "note", stock: "Yes", ship: "FedEx", sdate: "2007-12-03" },
-                { id: "21", name: "Laptop", note: "Long text ", stock: "Yes", ship: "InTime", sdate: "2007-12-03" },
-                { id: "22", name: "LCD Monitor", note: "note3", stock: "Yes", ship: "TNT", sdate: "2007-12-03" },
-                { id: "23", name: "Speakers", note: "note", stock: "No", ship: "ARAMEX", sdate: "2007-12-03" }
-            ];
-
             jQuery(function ($) {
                 var grid_selector = "#grid-table";
                 var pager_selector = "#grid-pager";
 
                 jQuery(grid_selector).jqGrid({
                     //direction: "rtl",
-
-                    data: grid_data,
-                    datatype: "local",
+                    url: '/Manage/SearchByConditions',
+                    datatype: "json",
                     height: 250,
-                    colNames: [' ', 'ID', 'Last Sales', 'Name', 'Stock', 'Ship via', 'Notes'],
-                    colModel: [
-                        {
-                            name: 'myac', index: '', width: 80, fixed: true, sortable: false, resize: false,
-                            formatter: 'actions',
-                            formatoptions: {
-                                keys: true,
-
-                                delOptions: { recreateForm: true, beforeShowForm: beforeDeleteCallback },
-                                //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
-                            }
-                        },
-                        { name: 'id', index: 'id', width: 60, sorttype: "int", editable: true },
-                        { name: 'sdate', index: 'sdate', width: 90, editable: true, sorttype: "date", unformat: pickDate },
-                        { name: 'name', index: 'name', width: 150, editable: true, editoptions: { size: "20", maxlength: "30" } },
-                        { name: 'stock', index: 'stock', width: 70, editable: true, edittype: "checkbox", editoptions: { value: "Yes:No" }, unformat: aceSwitch },
-                        { name: 'ship', index: 'ship', width: 90, editable: true, edittype: "select", editoptions: { value: "FE:FedEx;IN:InTime;TN:TNT;AR:ARAMEX" } },
-                        { name: 'note', index: 'note', width: 150, sortable: false, editable: true, edittype: "textarea", editoptions: { rows: "2", cols: "10" } }
+                    jsonReader:
+                    {
+                        root: "Records",
+                        page: "PageIndex",
+                        total: "PageCount",
+                        records: "TotalCount"
+                    },
+                    colNames:
+                    [
+                        'ID',
+                        '账号',
+                        '姓名',
+                        '电话',
+                        'Email',
+                        '备注',
+                        '创建时间'
+                    ],
+                    colModel:
+                    [
+                        { name: 'ID', width: 100, index: 'ID' },
+                        { name: 'Account', width: 150, index: 'Account' },
+                        { name: 'Name', width: 150, index: 'Name' },
+                        { name: 'Phone', width: 150, index: 'Phone' },
+                        { name: 'Email', width: 150, index: 'Email' },
+                        { name: 'Remark', width: 100, index: 'Remark' },
+                        { name: 'CreatedTime', width: 100, index: 'CreatedTime', formatter: 'date', sorttype: 'datetime', datefmt: 'M d h:i' }
                     ],
 
                     viewrecords: true,

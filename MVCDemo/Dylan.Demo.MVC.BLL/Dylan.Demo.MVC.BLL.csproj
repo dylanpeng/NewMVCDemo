@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dylan.Demo.MVC.Common\Dylan.Demo.MVC.Common.csproj">
+      <Project>{38fb148e-373a-4898-ac47-5cf39a408884}</Project>
+      <Name>Dylan.Demo.MVC.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dylan.Demo.MVC.DAL\Dylan.Demo.MVC.DAL.csproj">
       <Project>{38b72642-eac9-4069-80ef-cf4ffe4ef21b}</Project>
       <Name>Dylan.Demo.MVC.DAL</Name>

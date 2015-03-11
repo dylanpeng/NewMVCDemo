@@ -303,6 +303,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ViewJS\Main\MainACEJS.js" />
+    <Content Include="Scripts\ViewJS\Manage\AdminTableAjax.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -348,6 +349,10 @@
     <ProjectReference Include="..\Dylan.Demo.MVC.BLL\Dylan.Demo.MVC.BLL.csproj">
       <Project>{4f340484-2e49-4a0f-9316-d03cb281679c}</Project>
       <Name>Dylan.Demo.MVC.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dylan.Demo.MVC.Common\Dylan.Demo.MVC.Common.csproj">
+      <Project>{38fb148e-373a-4898-ac47-5cf39a408884}</Project>
+      <Name>Dylan.Demo.MVC.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dylan.Demo.MVC.Model\Dylan.Demo.MVC.Model.csproj">
       <Project>{8f48b511-8a21-44d5-b766-afaffc3c6506}</Project>

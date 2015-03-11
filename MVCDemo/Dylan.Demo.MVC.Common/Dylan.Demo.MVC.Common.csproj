@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="LinqHelper\PredicateBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableHelper\JsonTableParams.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Dylan.Demo.MVC.Model;
 using Dylan.Demo.MVC.BLL;
+using Dylan.Demo.MVC.Common;
 
 namespace Dylan.Demo.MVC.Controllers
 {
@@ -22,6 +23,14 @@ namespace Dylan.Demo.MVC.Controllers
             return View();
         }
 
+        public ActionResult SearchByConditions(string account, string name, string phone, string email, int page = 1, int rows = 10)
+        {
+            int totalCount = 0, pageIndex = page, pageSize = rows;
+            List<AdminVM> list = AdminBLL.SearchAdmin(account, name, phone, email, pageIndex, pageSize, out totalCount);
+            int pageCount = (int)Math.Ceiling((double)totalCount/(double)pageSize);
+            JsonTableParams<AdminVM> result = new JsonTableParams<AdminVM>(pageIndex, pageSize, pageCount, totalCount, list);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         /// <summary>
         /// 新增账户
