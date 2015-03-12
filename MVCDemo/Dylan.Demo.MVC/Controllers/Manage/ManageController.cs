@@ -92,9 +92,11 @@ namespace Dylan.Demo.MVC.Controllers
         /// 删除账户
         /// </summary>
         /// <returns></returns>
-        public ActionResult Delete()
+        [HttpPost]
+        public ActionResult Delete(string ids)
         {
-            return View();
+            AdminBLL.DeleteAdmin(ids);
+            return Content("OK");
         }
 	}
 }   

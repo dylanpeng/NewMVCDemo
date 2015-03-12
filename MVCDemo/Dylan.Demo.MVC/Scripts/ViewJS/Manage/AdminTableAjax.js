@@ -6,7 +6,7 @@
         //direction: "rtl",
         url: '/Manage/SearchByConditions',
         datatype: "json",
-        height: 385,
+        height: 320,
         jsonReader:
         {
             root: "Records",
@@ -16,45 +16,36 @@
         },
         colNames:
         [
-            '  ',
-            '操作',
             'ID',
             '账号',
             '姓名',
             '电话',
             'Email',
             '备注',
-            '创建时间'
+            '创建时间',
+            '操作'
         ],
         colModel:
         [
-            {
-                name: 'myac', index: '', width: 80, fixed: true, sortable: false, resize: false,
-                formatter: 'actions',
-                formatoptions: {
-                    keys: true,
-                    delOptions: { recreateForm: true, beforeShowForm: beforeDeleteCallback },
-                    //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
-                }
-            },
-            {
-                name: '操作', index: '', width: 50,
-                formatter: function (value, grid, rows, state) {
-                    return "<a href=\"/Manage/Edit/" + rows.ID + "\" style=\"color:#f60\">编辑</a>"
-                }
-            },
-            { name: 'ID', width: 100, index: 'ID' },
+            { name: 'ID', width: 100, index: 'ID', key: true },
             { name: 'Account', width: 150, index: 'Account' },
             { name: 'Name', width: 150, index: 'Name' },
             { name: 'Phone', width: 150, index: 'Phone' },
             { name: 'Email', width: 150, index: 'Email' },
             { name: 'Remark', width: 100, index: 'Remark' },
-            { name: 'CreatedTime', width: 100, index: 'CreatedTime', formatter: 'date', sorttype: 'datetime', datefmt: 'M d h:i' }
+            { name: 'CreatedTime', width: 100, index: 'CreatedTime', formatter: 'date', formatoptions: { newformat: 'Y-m-d' }, sorttype: 'datetime' },
+            {
+                name: '操作', index: '', width: 150,
+                formatter: function (value, grid, rows, state) {
+                    return "<a href=\"/Manage/Edit/" + rows.ID + "\" style=\"color:#f60\">编辑</a>&nbsp;&nbsp"
+                        + "<a href=\"javascript:void(0);\" onclick=\"DeleteAdmin(" + rows.ID + ")\" style=\"color:#f60\">删除</a>"
+                }
+            }
         ],
 
         viewrecords: true,
         rowNum: 10,
-        rowList: [10, 20, 30],
+        rowList: [5, 10, 20, 30],
         pager: pager_selector,
         altRows: true,
         //toppager: true,
@@ -75,7 +66,7 @@
         },
 
         editurl: $path_base + "/dummy.html",//nothing is saved
-        caption: "jqGrid with inline editing",
+        caption: "账号列表",
 
 
         autowidth: true
@@ -108,9 +99,9 @@
         { 	//navbar options
             edit: false,
             editicon: 'icon-pencil blue',
-            add: true,
+            add: false,
             addicon: 'icon-plus-sign purple',
-            del: true,
+            del: false,
             delicon: 'icon-trash red',
             search: false,
             searchicon: 'icon-search orange',
@@ -274,6 +265,5 @@
     }
 
     //var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
-
-
+    
 });

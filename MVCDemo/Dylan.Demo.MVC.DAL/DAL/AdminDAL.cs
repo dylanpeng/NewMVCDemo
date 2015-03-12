@@ -47,5 +47,18 @@ namespace Dylan.Demo.MVC.DAL
                 db.SaveChanges();
             }
         }
+
+        public static void DeleteAdmin(int id)
+        {
+            using (MVCDemoDBEntities db = new MVCDemoDBEntities())
+            {
+                Admin admin = db.Admin.Find(id);
+                if (admin != null)
+                {
+                    admin.IsDeleted = true;
+                }
+                db.SaveChanges();
+            }
+        }
     }
 }

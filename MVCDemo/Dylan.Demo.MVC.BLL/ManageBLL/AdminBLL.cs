@@ -20,6 +20,7 @@ namespace Dylan.Demo.MVC.BLL
         public static List<AdminVM> SearchAdmin(string account, string name, string phone, string email, DateTime beginTime, DateTime endTime, int pageIndex, int pageSize, out int totalCount)
         {
             var expression = PredicateBuilder.True<Admin>();
+            expression = expression.And(m => m.IsDeleted == false);
             if (!string.IsNullOrEmpty(account))
                 expression = expression.And(m => m.Account.Contains(account));
             if (!string.IsNullOrEmpty(name))
@@ -94,16 +95,6 @@ namespace Dylan.Demo.MVC.BLL
         }
 
         /// <summary>
-        /// 删除账户
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static bool DeleteAdmin(int id)
-        {
-            return true;
-        }
-
-        /// <summary>
         /// AdminVM 向 Admin赋值
         /// </summary>
         /// <param name="adminVM"></param>
@@ -133,6 +124,35 @@ namespace Dylan.Demo.MVC.BLL
                 adminVM.Hobbys = admin.Hobby.Split(',');
             }
             return adminVM;
+        }
+
+        /// <summary>
+        /// 删除账户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static void DeleteAdmin(int id)
+        {
+            AdminDAL.DeleteAdmin(id);
+        }
+
+
+        /// <summary>
+        /// 删除账户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static void DeleteAdmin(string ids)
+        { 
+            if(!string.IsNullOrEmpty(ids))
+            {
+                string[] strIDS = ids.Split(',');
+                foreach (var item in strIDS)
+                {
+                    int id = int.Parse(item);
+                    AdminDAL.DeleteAdmin(id);
+                }
+            }
         }
     }
 }
