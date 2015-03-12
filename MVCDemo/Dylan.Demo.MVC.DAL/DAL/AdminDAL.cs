@@ -14,7 +14,7 @@ namespace Dylan.Demo.MVC.DAL
         {
             using (MVCDemoDBEntities db = new MVCDemoDBEntities())
             {
-                totalCount = db.Admin.Count();
+                totalCount = db.Admin.Where(expression).Count();
                 return db.Admin.Where(expression).OrderByDescending(i => i.CreatedTime).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
             }
         }

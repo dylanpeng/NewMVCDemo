@@ -17,17 +17,24 @@ namespace Dylan.Demo.MVC.BLL
         /// 根据条件查询账号
         /// </summary>
         /// <returns></returns>
-        public static List<AdminVM> SearchAdmin(string account, string name, string phone, string email, int pageIndex, int pageSize, out int totalCount)
+        public static List<AdminVM> SearchAdmin(string account, string name, string phone, string email, DateTime beginTime, DateTime endTime, int pageIndex, int pageSize, out int totalCount)
         {
-            Expression<Func<Admin, bool>> expression = PredicateBuilder.True<Admin>();
+            var expression = PredicateBuilder.True<Admin>();
             if (!string.IsNullOrEmpty(account))
-                expression.And(m => m.Account.Contains(account));
+                expression = expression.And(m => m.Account.Contains(account));
             if (!string.IsNullOrEmpty(name))
-                expression.And(m => m.Name.Contains(name));
+                expression = expression.And(m => m.Name.Contains(name));
             if (!string.IsNullOrEmpty(phone))
-                expression.And(m => m.Name.Contains(phone));
+                expression = expression.And(m => m.Phone.Contains(phone));
             if (!string.IsNullOrEmpty(email))
-                expression.And(m => m.Name.Contains(email));
+                expression = expression.And(m => m.Email.Contains(email));
+            if (!beginTime.Equals(DateTime.MinValue))
+                expression = expression.And(m => m.CreatedTime >= beginTime);
+            if (!endTime.Equals(DateTime.MinValue))
+            {
+                endTime = endTime.AddDays(1);
+                expression = expression.And(m => m.CreatedTime <= endTime);
+            }
             List<Admin> adminsList = AdminDAL.SearchByConditions(expression, pageIndex, pageSize, out totalCount);
             if (adminsList != null && adminsList.Count > 0)
             {

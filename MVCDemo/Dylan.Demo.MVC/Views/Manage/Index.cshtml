@@ -37,11 +37,27 @@
                 账号列表
                 <small>
                     <i class="icon-double-angle-right"></i>
-                    查询详情
+                    搜索条件
                 </small>
             </h1>
         </div><!-- /.page-header -->
-
+        <div class="my-float-left my-margin-bottom-5">
+            @Html.Label("账号：", new { @class = "no-padding-right control-label my-float-left my-margin-right-28" })
+            @Html.TextBox("textAccount", "", new { @class = "my-float-left my-width-150 my-margin-right-50" })
+            @Html.Label("姓名：", new { @class = "no-padding-right control-label my-float-left my-margin-right-28" })
+            @Html.TextBox("textName", "", new { @class = "my-float-left my-width-150 my-margin-right-50" })
+            @Html.Label("电话：", new { @class = "no-padding-right control-label my-float-left " })
+            @Html.TextBox("textPhone", "", new { @class = "my-float-left my-width-150 my-margin-right-50" })
+            @Html.Label("Email：", new { @class = "no-padding-right control-label my-float-left " })
+            @Html.TextBox("textEmail", "", new { @class = "my-float-left my-width-150" })
+        </div>
+        <div class="my-float-left my-margin-bottom-5">
+            @Html.Label("开始时间：", new { @class = "no-padding-right control-label my-float-left" })
+            @Html.TextBox("textBeginTime", "", new { @class = "my-float-left my-width-150 my-margin-right-50" })
+            @Html.Label("结束时间：", new { @class = "no-padding-right control-label my-float-left " })
+            @Html.TextBox("textEndTime", "", new { @class = "my-float-left my-width-150 my-margin-right-50" })
+            <button class="btn btn-primary" style=" height:30px; padding-top: 3px; font-size:12px;">搜索</button>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <table id="grid-table"></table>
@@ -89,7 +105,35 @@
         <!-- inline scripts related to this page -->
 
         <script type="text/javascript">
+            $(".btn-primary").click(function () {
+                var account = $("#textAccount").val();
+                var name = $("#textName").val();
+                var phone = $("#textPhone").val();
+                var Email = $("#textEmail").val();
+                var beginTime = $("#textBeginTime").val();
+                var endTime = $("#textEndTime").val();
+                var data = {
+                    'account': account,
+                    'name': name,
+                    'phone': phone,
+                    'email': Email,
+                    'beginTime': beginTime,
+                    'endTime': endTime
+                }
+                $("#grid-table").jqGrid('setGridParam', {
+                    url: "/Manage/SearchByConditions",
+                    postData: data, //发送数据 
+                    page: 1
+                }).trigger("reloadGrid"); //重新载入 
+            });
             
+
+            $(function () {
+                $("#textBeginTime,#textEndTime").datepicker({
+                    showOtherMonths: true,
+                    selectOtherMonths: false,
+                });
+            });
         </script>
     }
 
