@@ -51,6 +51,7 @@ namespace Dylan.Demo.MVC.Controllers
             if (ModelState.IsValid)
             {
                 AdminBLL.AddAdmin(adminVM);
+                return RedirectToAction("Index");
             }
             return View(adminVM);
         }
@@ -79,6 +80,7 @@ namespace Dylan.Demo.MVC.Controllers
             if (ModelState.IsValid)
             {
                 AdminBLL.EditAdmin(admin);
+                return RedirectToAction("Index");
             }
             return View(admin);
         }
