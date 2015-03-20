@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="ManageBLL\AdminBLL.cs" />
     <Compile Include="ManageBLL\DictionaryBLL.cs" />
+    <Compile Include="ManageBLL\PermissionBLL.cs" />
+    <Compile Include="ManageBLL\RoleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

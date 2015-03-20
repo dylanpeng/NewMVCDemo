@@ -43,6 +43,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Models\AdminVM.cs" />
     <Compile Include="Models\DictionaryVM.cs" />
+    <Compile Include="Models\PermissionVM.cs" />
+    <Compile Include="Models\RoleVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

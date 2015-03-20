@@ -7,6 +7,10 @@
       <Diagram DiagramId="028bfca33b2c453b9af17134f0bd56f9" Name="Diagram1">
         <EntityTypeShape EntityType="MVCDemoDBModel.Dictionary" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="MVCDemoDBModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MVCDemoDBModel.Admin_Role" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MVCDemoDBModel.Permission" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MVCDemoDBModel.Role" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MVCDemoDBModel.Role_Permission" Width="1.5" PointX="5.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

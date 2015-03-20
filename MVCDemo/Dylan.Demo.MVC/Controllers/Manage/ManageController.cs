@@ -13,6 +13,15 @@ namespace Dylan.Demo.MVC.Controllers
     {
         //
         // GET: /Manage/
+        /// <summary>
+        /// 起始页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Home()
+        {
+            return View();
+        }
+
 
         /// <summary>
         /// 账号列表
