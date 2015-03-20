@@ -60,7 +60,7 @@
     <Compile Include="Admin_Role.cs">
       <DependentUpon>DemoMVCDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="BassDAL.cs" />
+    <Compile Include="BaseDAL.cs" />
     <Compile Include="DAL\AdminDAL.cs" />
     <Compile Include="DAL\DictionaryDAL.cs" />
     <Compile Include="DAL\PermissionDAL.cs" />

@@ -4,5 +4,108 @@
     Layout = "~/Views/Shared/_main.cshtml";
 }
 
-<h2>Index</h2>
+<div class="main-content">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+        </script>
 
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home home-icon"></i>
+                <a href="#">主页</a>
+            </li>
+
+            <li>
+                <a href="#">账号管理</a>
+            </li>
+            <li class="active">账号列表</li>
+        </ul><!-- .breadcrumb -->
+    </div>
+
+    <div class="page-content">
+        <div class="page-header">
+            <h1>
+                账号列表
+            </h1>
+        </div><!-- /.page-header -->
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="grid-table"></table>
+                <div id="grid-pager"></div>
+                <script type="text/javascript">
+                    var $path_base = "/";//this will be used in gritter alerts containing images
+                </script>
+
+                <!-- PAGE CONTENT ENDS -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.page-content -->
+</div>
+@section scripts{
+
+    <!-- <![endif]-->
+    <!--[if IE]>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <![endif]-->
+    <!--[if !IE]> -->
+
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='~/Scripts/assets//js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+
+    <!-- <![endif]-->
+    <!--[if IE]>
+    <script type="text/javascript">
+     window.jQuery || document.write("<script src='~/Scripts/assets//js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+    </script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='~/Scripts/assets//js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+
+    <!-- page specific plugin scripts -->
+
+    <script src="~/Scripts/assets//js/date-time/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/assets//js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="~/Scripts/assets//js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/ViewJS/Role/RoleTableAjax.js"></script>
+
+
+    <!-- inline scripts related to this page -->
+
+    <script type="text/javascript">
+        function ReloadTable(page) {
+            var data = {
+
+            }
+            $("#grid-table").jqGrid('setGridParam', {
+                url: "/Role/SearchByConditions",
+                postData: data, //发送数据 
+                page: page
+            }).trigger("reloadGrid"); //重新载入 
+        }
+
+        function DeleteRole(id) {
+            if (confirm("确认删除？")) {
+                $.post(
+                    "/Role/Delete",
+                    { ids: id.toString() },
+                    function (data) {
+                        page = $('#grid-table').getGridParam('page');
+                        ReloadTable(page);
+                    }
+                )
+            }
+        }
+
+        function DeleteRoles() {
+            var ids = $('#grid-table').jqGrid('getGridParam', 'selarrrow');
+            if (ids == "")
+                alert("请选择至少一个");
+            else
+                DeleteRole(ids);
+        }
+    </script>
+}

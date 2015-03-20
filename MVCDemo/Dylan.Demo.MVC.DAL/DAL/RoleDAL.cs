@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Dylan.Demo.MVC.DAL
 {
-    public class RoleDAL
+    public class RoleDAL : BaseDAL<Role>
     {
+        public static void DeleteLogical(int id)
+        {
+            using (MVCDemoDBEntities db = new MVCDemoDBEntities())
+            {
+                Role role = db.Role.Find(id);
+                if (role != null)
+                {
+                    role.IsDeleted = true;
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

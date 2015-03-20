@@ -306,6 +306,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ViewJS\Main\MainACEJS.js" />
     <Content Include="Scripts\ViewJS\Manage\AdminTableAjax.js" />
+    <Content Include="Scripts\ViewJS\Role\RoleTableAjax.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

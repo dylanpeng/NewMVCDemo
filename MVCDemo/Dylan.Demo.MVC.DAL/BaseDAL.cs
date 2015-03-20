@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dylan.Demo.MVC.DAL
 {
-    public class BassDAL<T> where T : class
+    public class BaseDAL<T> where T : class
     {
         public static List<T> Search<TKey>(Expression<Func<T, bool>> expression, Expression<Func<T, TKey>> orderBy, int pageIndex, int pageSize, out int totalCount)
         {
@@ -47,7 +47,7 @@ namespace Dylan.Demo.MVC.DAL
             return model;
         }
 
-        public void Delete(T model)
+        public static void Delete(T model)
         {
             using (MVCDemoDBEntities db = new MVCDemoDBEntities())
             {
@@ -55,11 +55,11 @@ namespace Dylan.Demo.MVC.DAL
                 db.SaveChanges();
             }
         }
-        public void Delete(params object[] keyValues)
+        public static void Delete(params object[] keyValues)
         {
             using (MVCDemoDBEntities db = new MVCDemoDBEntities())
             {
-                T model = Find(keyValues);
+                T model = db.Set<T>().Find(keyValues);
                 if (model != null)
                 {
                     db.Set<T>().Remove(model);
@@ -67,7 +67,7 @@ namespace Dylan.Demo.MVC.DAL
                 }
             }
         }
-        public T Find(params object[] keyValues)
+        public static T Find(params object[] keyValues)
         {
             using (MVCDemoDBEntities db = new MVCDemoDBEntities())
             {
