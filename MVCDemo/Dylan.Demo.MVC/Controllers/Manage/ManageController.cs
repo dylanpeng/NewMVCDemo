@@ -19,7 +19,7 @@ namespace Dylan.Demo.MVC.Controllers
         /// <returns></returns>
         public ActionResult Home()
         {
-            return View();
+            return View(); 
         }
 
 
